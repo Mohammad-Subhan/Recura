@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: var(--background);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-primary: var(--primary);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
+}
+
+:root {
+  --background: #F7FAFA;
+  --secondary: #E5E8EB;
+  --accent: #D4DBE8;
+  --primary: #F5C754;
+  --text: #141C24;
+  --text-secondary: #405473;
+}
+
+.dark {
+  --background: #141C24;
+  --secondary: #272f37;
+  --accent: #273646;
+  --primary: #F5C754;
+  --text: #F7FAFA;
+  --text-secondary: #DEE1E1;
+}
