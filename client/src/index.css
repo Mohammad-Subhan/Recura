@@ -6,8 +6,10 @@
 @theme {
   --color-background: var(--background);
   --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
   --color-accent: var(--accent);
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-text: var(--text);
   --color-text-secondary: var(--text-secondary);
 }
@@ -15,8 +17,10 @@
 :root {
   --background: #F7FAFA;
   --secondary: #E5E8EB;
+  --secondary-hover: #DCDEE0;
   --accent: #D4DBE8;
   --primary: #F5C754;
+  --primary-hover: #F4C245;
   --text: #141C24;
   --text-secondary: #405473;
 }
@@ -24,8 +28,10 @@
 .dark {
   --background: #141C24;
   --secondary: #272f37;
+  --secondary-hover: #DCDEE0;
   --accent: #273646;
   --primary: #F5C754;
+  --primary-hover: #F4C245;
   --text: #F7FAFA;
   --text-secondary: #DEE1E1;
 }
