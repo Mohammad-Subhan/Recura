@@ -8,31 +8,34 @@ import { Input } from './ui/input'
 import { Label } from './ui/label'
 import api from "../api/axios"
 import { setAccessToken } from "../api/auth"
+import { useDispatch, useSelector } from 'react-redux'
+import { setUser, setLoading } from "../features/user/userSlice"
 
 const LoginForm = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const loading = useSelector(state => state.user.isLoading);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
 
+        dispatch(setLoading(true));
         try {
             const response = await api.post("token/", {
                 email: email,
                 password: password,
             });
             setAccessToken(response.data.access);
-
+            dispatch(setUser(response.data.user));
             console.log("Login successful:", response.data.message);
             navigate("/");
         } catch (error) {
             console.log("Error:", error.response?.data?.detail || "An error occurred");
         } finally {
-            setLoading(false);
+            dispatch(setLoading(false));
         }
     }
 

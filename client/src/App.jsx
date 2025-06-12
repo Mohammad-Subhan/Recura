@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes, Navigate, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import ProtectedRoute from './components/ProtectedRoute'
 import Dashboard from './pages/Dashboard'
 import NotFoundPage from './pages/NotFoundPage'
 import LoginPage from './pages/LoginPage'
@@ -20,8 +21,9 @@ const App = () => {
         <Routes>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/home" element={<Navigate to="/" />} />
+            <Route path="/dashboard" element={<Navigate to="/" />} />
             <Route path="*" element={<NotFoundPage />} />
         </Routes>
     )

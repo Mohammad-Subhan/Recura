@@ -39,28 +39,34 @@ class RegisterView(APIView):
 @method_decorator(csrf_exempt, name="dispatch")
 class CookieTokenObtainPairView(TokenObtainPairView):
     def post(self, request: HttpRequest, *args, **kwargs):
-        response = super().post(request, *args, **kwargs)
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
-        if response.status_code == status.HTTP_200_OK:
-            refresh = response.data.get("refresh")
-            access = response.data.get("access")
+        # Get tokens
+        tokens = serializer.validated_data
 
-            # Remove from response data
-            response.data.pop("refresh", None)
+        # Get user
+        user = serializer.user
 
-            # Set the refresh token in a secure HTTP-only cookie
-            response.set_cookie(
-                key=settings.SIMPLE_JWT["AUTH_COOKIE"],
-                value=refresh,
-                httponly=settings.SIMPLE_JWT["AUTH_COOKIE_HTTP_ONLY"],
-                secure=settings.SIMPLE_JWT["AUTH_COOKIE_SECURE"],
-                samesite=settings.SIMPLE_JWT["AUTH_COOKIE_SAMESITE"],
-                path=settings.SIMPLE_JWT["AUTH_COOKIE_PATH"],
-                domain=settings.SIMPLE_JWT["AUTH_COOKIE_DOMAIN"],
-                max_age=20,  # 20 seconds
-            )
+        # Prepare response
+        response = Response(
+            {"access": tokens.get("access"), "user": UserSerializer(user).data},
+            status=status.HTTP_200_OK,
+        )
 
-            return response
+        # Set HTTP-only cookie for refresh
+        response.set_cookie(
+            key=settings.SIMPLE_JWT["AUTH_COOKIE"],
+            value=tokens.get("refresh"),
+            httponly=settings.SIMPLE_JWT["AUTH_COOKIE_HTTP_ONLY"],
+            secure=settings.SIMPLE_JWT["AUTH_COOKIE_SECURE"],
+            samesite=settings.SIMPLE_JWT["AUTH_COOKIE_SAMESITE"],
+            path=settings.SIMPLE_JWT["AUTH_COOKIE_PATH"],
+            domain=settings.SIMPLE_JWT["AUTH_COOKIE_DOMAIN"],
+            max_age=20,
+        )
+
+        return response
 
 
 @method_decorator(csrf_exempt, name="dispatch")
