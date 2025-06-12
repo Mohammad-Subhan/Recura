@@ -1,21 +1,45 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-import { HiOutlineMail } from "react-icons/hi";
-import { LuKeyRound } from "react-icons/lu";
-import { FaGoogle } from "react-icons/fa";
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { HiOutlineMail } from "react-icons/hi"
+import { LuKeyRound } from "react-icons/lu"
+import { FaGoogle } from "react-icons/fa"
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
+import api from "../api/axios"
+import { setAccessToken } from "../api/auth"
 
 const LoginForm = () => {
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        try {
+            const response = await api.post("token/", {
+                email: email,
+                password: password,
+            });
+            setAccessToken(response.data.access);
+
+            console.log("Login successful:", response.data.message);
+            navigate("/");
+        } catch (error) {
+            console.log("Error:", error.response?.data?.detail || "An error occurred");
+        } finally {
+            setLoading(false);
+        }
+    }
 
     return (
         <div className="flex flex-col items-center justify-center w-full">
             <h1 className="text-3xl font-bold text-text mb-6">Welcome to Recordit</h1>
-            <form className="space-y-4 w-full max-w-md">
+            <form className="space-y-4 w-full max-w-md" onSubmit={handleSubmit}>
                 <div className="space-y-4">
                     <div className="relative">
                         <Label htmlFor="email" className="sr-only">
@@ -51,6 +75,7 @@ const LoginForm = () => {
                 <Button
                     type="submit"
                     className="w-full h-12 bg-primary hover:bg-primary-hover hover:cursor-pointer text-text rounded-xl"
+                    disabled={loading}
                 >
                     Log in
                 </Button>
@@ -63,6 +88,7 @@ const LoginForm = () => {
                     <Button
                         variant="outline"
                         className="h-12 bg-secondary hover:bg-secondary-hover text-text border-secondary-hover rounded-xl"
+                        disabled={loading}
                     >
                         <FaGoogle className="mr-2 h-5 w-5 text-text" />
                         Sign up with Google

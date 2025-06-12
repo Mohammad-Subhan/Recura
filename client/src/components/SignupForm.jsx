@@ -1,23 +1,45 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-import { HiOutlineMail } from "react-icons/hi";
-import { FiUser } from "react-icons/fi";
-import { LuKeyRound } from "react-icons/lu";
-import { FaGoogle } from "react-icons/fa";
+import { Link, useNavigate } from 'react-router-dom'
+import { HiOutlineMail } from "react-icons/hi"
+import { FiUser } from "react-icons/fi"
+import { LuKeyRound } from "react-icons/lu"
+import { FaGoogle } from "react-icons/fa"
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
+import api from "../api/axios"
 
 const SignupForm = () => {
-
+    const navigate = useNavigate();
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        try {
+            const response = await api.post("register/", {
+                fullName: fullName,
+                email: email,
+                password: password,
+            });
+            console.log("Registration successful:", response.data.message);
+            navigate("/login");
+        } catch (error) {
+            console.log("Error:", error.response?.data?.message || "An error occurred");
+        } finally {
+            setLoading(false);
+        }
+    }
+
 
     return (
         <div className="flex flex-col items-center justify-center w-full">
             <h1 className="text-3xl font-bold text-text mb-6">Welcome to Recordit</h1>
-            <form className="space-y-4 w-full max-w-md">
+            <form className="space-y-4 w-full max-w-md" onSubmit={handleSubmit}>
                 <div className="space-y-4">
                     <div className="relative">
                         <Label htmlFor="fullName" className="sr-only">
@@ -67,6 +89,7 @@ const SignupForm = () => {
                 <Button
                     type="submit"
                     className="w-full h-12 bg-primary hover:bg-primary-hover hover:cursor-pointer text-text rounded-xl"
+                    disabled={loading}
                 >
                     Sign Up
                 </Button>
