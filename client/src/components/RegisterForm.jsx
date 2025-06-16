@@ -9,7 +9,7 @@ import { Input } from './ui/input'
 import { Label } from './ui/label'
 import api from "../api/axios"
 
-const SignupForm = () => {
+const RegisterForm = () => {
     const navigate = useNavigate();
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
@@ -91,7 +91,7 @@ const SignupForm = () => {
                     className="w-full h-12 bg-primary hover:bg-primary-hover hover:cursor-pointer text-text rounded-xl"
                     disabled={loading}
                 >
-                    Sign Up
+                    Register
                 </Button>
 
                 <div className="text-center">
@@ -104,7 +104,7 @@ const SignupForm = () => {
                         className="h-12 bg-secondary hover:bg-secondary-hover text-text border-secondary-hover rounded-xl"
                     >
                         <FaGoogle className="mr-2 h-5 w-5 text-text" />
-                        Login with Google
+                        Continue with Google
                     </Button>
                 </div>
                 <div className="text-center mt-6">
@@ -117,4 +117,4 @@ const SignupForm = () => {
     )
 }
 
-export default SignupForm
+export default RegisterForm

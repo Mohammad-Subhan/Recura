@@ -12,4 +12,17 @@ urlpatterns = [
     path("register/", views.RegisterView.as_view(), name="register"),
     path("logout/", views.LogoutView.as_view(), name="logout"),
     path("user/", views.UserView.as_view(), name="user"),
+    path("recordings/", views.RecordingView.as_view(), name="recordings"),
+    path("recordings/my/", views.MyRecordingView.as_view(), name="my_recordings"),
+    path(
+        "recordings/<int:pk>/",
+        views.RecordingDetailView.as_view(),
+        name="recording_detail",
+    ),
+    path(
+        "recordings/<int:pk>/transcriptions/",
+        views.TranscriptionView.as_view(),
+        name="transcriptions",
+    ),
+    path("user/preference/", views.PreferenceView.as_view(), name="preferences"),
 ]

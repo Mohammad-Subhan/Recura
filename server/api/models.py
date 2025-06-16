@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from datetime import timedelta
 
 
 class UserManager(BaseUserManager):
@@ -37,3 +38,52 @@ class User(AbstractBaseUser):
 
     def __str__(self):
         return self.email
+
+
+class Recording(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recordings")
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    videoUrl = models.URLField()
+    thumbnailUrl = models.URLField()
+    isPublic = models.BooleanField(default=False)
+    createdAt = models.DateTimeField(auto_now_add=True)
+    updatedAt = models.DateTimeField(auto_now=True)
+    duration = models.DurationField(default=timedelta(seconds=10))
+
+    def __str__(self):
+        return f"{self.title} by {self.user.fullName} ({self.createdAt})"
+
+
+class Transcription(models.Model):
+    id = models.AutoField(primary_key=True)
+    recording = models.ForeignKey(
+        Recording, on_delete=models.CASCADE, related_name="transcriptions"
+    )
+    text = models.TextField()
+    language = models.CharField(max_length=10, default="en")
+    createdAt = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Transcription for {self.recording.title} ({self.language})"
+
+
+class SharedLink(models.Model):
+    id = models.AutoField(primary_key=True)
+    recording = models.ForeignKey(
+        Recording, on_delete=models.CASCADE, related_name="shared_links"
+    )
+    token = models.CharField(max_length=64, unique=True)
+    createdAt = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Token {self.token} for {self.recording.title}"
+
+
+class Preference(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="preferences")
+    theme = models.CharField(max_length=50, default="light")
+
+    def __str__(self):
+        return f"Preferences for {self.user.fullName}"

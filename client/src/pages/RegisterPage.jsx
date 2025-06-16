@@ -1,7 +1,7 @@
 import React from 'react'
-import SignupForm from '../components/SignupForm'
+import RegisterForm from '../components/RegisterForm'
 
-const SignupPage = () => {
+const RegisterPage = () => {
     return (
         <div className="flex w-full h-full">
             {/* Left Side */}
@@ -13,10 +13,10 @@ const SignupPage = () => {
 
             {/* Right Side */}
             <div className="flex items-center justify-center h-screen bg-background w-1/2">
-                <SignupForm />
+                <RegisterForm />
             </div>
         </div>
     )
 }
 
-export default SignupPage
+export default RegisterPage

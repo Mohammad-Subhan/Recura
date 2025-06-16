@@ -94,12 +94,12 @@ const LoginForm = () => {
                         disabled={loading}
                     >
                         <FaGoogle className="mr-2 h-5 w-5 text-text" />
-                        Sign up with Google
+                        Continue with Google
                     </Button>
                 </div>
                 <div className="text-center mt-6">
                     <p className="text-sm text-gray-500 mt-4">
-                        Don't have an account? <Link className="text-primary font-semibold hover:underline" to="/signup">Sign up</Link>
+                        Don't have an account? <Link className="text-primary font-semibold hover:underline" to="/register">Register</Link>
                     </p>
                 </div>
             </form>
