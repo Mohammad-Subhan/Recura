@@ -51,7 +51,7 @@ const RegisterForm = () => {
                             placeholder="Full Name"
                             value={fullName}
                             onChange={(e) => setFullName(e.target.value)}
-                            className="pl-12 h-14 bg-white border-secondary rounded-xl text-text placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                            className="pl-12 h-14 bg-white border-accent rounded-xl text-text placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                         />
                         <FiUser className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                     </div>
@@ -65,7 +65,7 @@ const RegisterForm = () => {
                             placeholder="Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="pl-12 h-14 bg-white border-secondary rounded-xl text-text placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                            className="pl-12 h-14 bg-white border-accent rounded-xl text-text placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                         />
                         <HiOutlineMail className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                     </div>
@@ -80,7 +80,7 @@ const RegisterForm = () => {
                             placeholder="Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="pl-12 h-14 bg-white border-secondary rounded-xl text-text placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                            className="pl-12 h-14 bg-white border-accent rounded-xl text-text placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                         />
                         <LuKeyRound className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                     </div>
@@ -101,7 +101,7 @@ const RegisterForm = () => {
                 <div className="flex flex-col space-y-4">
                     <Button
                         variant="outline"
-                        className="h-12 bg-secondary hover:bg-secondary-hover text-text border-secondary-hover rounded-xl"
+                        className="h-12 bg-accent hover:bg-accent-hover text-text border-accent hover:border-accent-hover hover:cursor-pointer rounded-xl"
                     >
                         <FaGoogle className="mr-2 h-5 w-5 text-text" />
                         Continue with Google

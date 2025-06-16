@@ -8,6 +8,7 @@
   --color-secondary: var(--secondary);
   --color-secondary-hover: var(--secondary-hover);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-text: var(--text);
@@ -16,9 +17,10 @@
 
 :root {
   --background: #F7FAFA;
-  --secondary: #ffa02bde;
-  --secondary-hover: #DCDEE0;
-  --accent: #D7C962;
+  --secondary: #FFA02B;
+  --secondary-hover: #E59026;
+  --accent: #E3E8F2;
+  --accent-hover: #E4E6EB;
   --primary: #F5C754;
   --primary-hover: #F4C245;
   --text: #141C24;
