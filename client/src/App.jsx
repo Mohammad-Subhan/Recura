@@ -6,6 +6,7 @@ import NotFoundPage from './pages/NotFoundPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import LandingPage from './pages/LandingPage'
+import NewRecordingPage from './pages/NewRecordingPage'
 import { setOnUnauthenticated } from "./api/auth"
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/" element={<LandingPage />} />
             <Route path="/home" element={<Navigate to="/" />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/recordings/new" element={<NewRecordingPage />} />
             <Route path="*" element={<NotFoundPage />} />
         </Routes>
     )

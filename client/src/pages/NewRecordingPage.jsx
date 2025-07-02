@@ -1,0 +1,169 @@
+import Layout from "../components/Layout"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Label } from "@/components/ui/label"
+import { Switch } from "@/components/ui/switch"
+import {
+    Play,
+    Monitor,
+    Settings,
+} from "lucide-react"
+
+const settings = [
+    { id: "mic-setting", label: "Microphone" },
+    { id: "system-audio", label: "System Audio" },
+    { id: "webcam", label: "Webcam Overlay" },
+    { id: "cursor", label: "Show Cursor" },
+    { id: "clicks", label: "Show Clicks" },
+]
+
+const NewRecordingPage = () => {
+
+    return (
+        <Layout>
+            <div className="h-full w-full p-6 space-y-8 bg-background text-text">
+                <div className="max-w-6xl mx-auto space-y-6">
+                    <div className="text-center">
+                        <h1 className="text-3xl font-bold mb-2">Screen Recording Studio</h1>
+                        <p className="text-text-secondary">Record your screen with professional quality and AI-powered features</p>
+                    </div>
+
+                    <div className="grid lg:grid-cols-3 gap-6">
+                        {/* Recording Controls */}
+                        <div className="lg:col-span-2 space-y-6">
+                            {/* Main Recording Area */}
+                            <Card className="border-0 bg-white/60 backdrop-blur-sm">
+                                <CardContent className="p-8">
+                                    <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/30 rounded-xl flex items-center justify-center mb-6 border-2 border-dashed border-primary">
+                                        <div className="text-center">
+                                            <div className="space-y-4">
+                                                <div className="sm:w-20 sm:h-20 w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto">
+                                                    <Monitor className="sm:h-10 sm:w-10 w-5 h-5 text-white" />
+                                                </div>
+                                                <div>
+                                                    <p className="sm:text-xl text-sm font-semibold">Ready to Record</p>
+                                                    <p className="text-muted-foreground sm:text-sm text-xs">Click start when you're ready</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Recording Controls */}
+                                    <div className="flex items-center justify-center space-x-4">
+                                        <Button
+                                            size="lg"
+                                            // onClick={startRecording}
+                                            className="px-8 py-4 bg-primary hover:bg-primary-hover hover:cursor-pointer text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                                        >
+                                            <Play className="w-5 h-5 mr-2" />
+                                            Start Recording
+                                        </Button>
+                                    </div>
+
+                                    {/* Audio Controls */}
+                                    {/* {isRecording && (
+                                        <div className="flex items-center justify-center space-x-6 mt-6 pt-6 border-t border-purple-200 dark:border-purple-800">
+                                            <Button
+                                                variant={isMicEnabled ? "default" : "outline"}
+                                                size="sm"
+                                                onClick={toggleMic}
+                                                className={isMicEnabled ? "bg-green-600 hover:bg-green-700" : ""}
+                                            >
+                                                {isMicEnabled ? <Mic className="w-4 h-4 mr-2" /> : <MicOff className="w-4 h-4 mr-2" />}
+                                                Microphone
+                                            </Button>
+                                            <Button
+                                                variant={isSystemAudioEnabled ? "default" : "outline"}
+                                                size="sm"
+                                                onClick={toggleSystemAudio}
+                                                className={isSystemAudioEnabled ? "bg-blue-600 hover:bg-blue-700" : ""}
+                                            >
+                                                {isSystemAudioEnabled ? <Volume2 className="w-4 h-4 mr-2" /> : <VolumeX className="w-4 h-4 mr-2" />}
+                                                System Audio
+                                            </Button>
+                                        </div>
+                                    )} */}
+                                </CardContent>
+                            </Card>
+                        </div>
+
+                        {/* Settings Panel */}
+                        <div className="space-y-6">
+                            <Card className="border-0 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm">
+                                <CardHeader>
+                                    <CardTitle className="flex items-center">
+                                        <Settings className="w-5 h-5 mr-2" />
+                                        Recording Settings
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent className="space-y-4">
+                                    {settings.map((setting) => (
+                                        <div className="flex items-center justify-between">
+                                            <Label htmlFor={setting.id}>{setting.label}</Label>
+                                            <Switch id={setting.id} className="bg-accent data-[state=checked]:bg-primary" />
+                                        </div>
+                                    ))}
+                                </CardContent>
+                            </Card>
+
+                            <Card className="border-0 bg-white/60 backdrop-blur-sm">
+                                <CardHeader>
+                                    <CardTitle>Quality Settings</CardTitle>
+                                </CardHeader>
+                                <CardContent className="space-y-4">
+                                    <div>
+                                        <Label className="text-sm font-medium">Resolution</Label>
+                                        <div className="grid grid-cols-2 gap-2 mt-2">
+                                            <Button variant="outline" size="sm" className="text-xs border-accent hover:cursor-pointer">
+                                                1080p
+                                            </Button>
+                                            <Button variant="outline" size="sm" className="text-xs border-accent hover:cursor-pointer">
+                                                4K
+                                            </Button>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <Label className="text-sm font-medium">Frame Rate</Label>
+                                        <div className="grid grid-cols-2 gap-2 mt-2">
+                                            <Button variant="outline" size="sm" className="text-xs border-accent hover:cursor-pointer">
+                                                30fps
+                                            </Button>
+                                            <Button variant="outline" size="sm" className="text-xs border-accent hover:cursor-pointer">
+                                                60fps
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+
+                            <Card className="border-0 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm">
+                                <CardHeader>
+                                    <CardTitle>AI Features</CardTitle>
+                                </CardHeader>
+                                <CardContent className="space-y-4">
+                                    <div className="flex items-center justify-between">
+                                        <Label htmlFor="transcription">Auto Transcription</Label>
+                                        <Switch id="transcription" className="bg-accent data-[state=checked]:bg-primary" defaultChecked />
+                                    </div>
+
+                                    <div className="flex items-center justify-between">
+                                        <Label htmlFor="summary">AI Summary</Label>
+                                        <Switch id="summary" className="bg-accent data-[state=checked]:bg-primary" />
+                                    </div>
+
+                                    <div className="flex items-center justify-between">
+                                        <Label htmlFor="chapters">Auto Chapters</Label>
+                                        <Switch id="chapters" className="bg-accent data-[state=checked]:bg-primary" />
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Layout>
+    )
+}
+
+export default NewRecordingPage

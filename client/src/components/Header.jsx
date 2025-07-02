@@ -39,7 +39,7 @@ const Header = ({ isOpen }) => {
     const { toggleSidebar } = useSidebar()
 
     return (
-        <header className="sticky top-0 z-40 w-full border-b border-accent bg-background backdrop-blur-md">
+        <header className="fixed top-0 z-50 w-full border-b border-accent bg-background/80 backdrop-blur-md shadow-md">
             <div className="flex h-16 items-center justify-between px-6">
                 <div className="flex items-center space-x-4">
                     <Button onClick={toggleSidebar} variant="ghost" size="icon" className="hover:cursor-pointer hover:bg-transparent">

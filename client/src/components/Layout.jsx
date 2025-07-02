@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
                 <AppSidebar />
                 <div className="flex flex-col flex-1 h-full w-full">
                     <Header isOpen={isOpen} />
-                    <main className="flex w-full h-full">{children}</main>
+                    <main className="flex w-full h-full mt-16">{children}</main>
                 </div>
             </div>
         </SidebarProvider>

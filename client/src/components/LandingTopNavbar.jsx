@@ -75,7 +75,7 @@ const LandingTopNavbar = () => {
                                 </Link>
                                 <div className="flex flex-col space-y-2">
                                     <Link href="/auth/signin">
-                                        <Button variant="outline" size="sm" className="w-full justify-center bg-background border-accent hover:bg-accent hover:cursor-pointer"> 
+                                        <Button variant="outline" size="sm" className="w-full justify-center bg-background border-accent hover:bg-accent hover:cursor-pointer">
                                             Sign In
                                         </Button>
                                     </Link>
