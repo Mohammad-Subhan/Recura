@@ -65,7 +65,7 @@ const LandingPage = () => {
                     <div className="flex flex-row gap-4 justify-center my-10">
                         <Link href="/dashboard">
                             <Button
-                                className="lg:h-[50px] h-[40px] gap-3 lg:text-lg font-semibold bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover shadow-lg hover:cursor-pointer text-text"
+                                className="h-[40px] gap-3 font-semibold bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover shadow-lg hover:cursor-pointer text-text"
                             >
                                 Get Started
                                 <FaArrowRight />
@@ -73,7 +73,7 @@ const LandingPage = () => {
                         </Link>
                         <Button
                             variant="outline"
-                            className="lg:h-[50px] h-[40px] lg:text-lg font-semibold border border-accent hover:bg-primary/5 hover:cursor-pointer text-text"
+                            className="h-[40px] font-semibold border border-accent hover:bg-primary/5 hover:cursor-pointer text-text"
                         >
                             <IoPlayOutline />
                             Watch Demo
