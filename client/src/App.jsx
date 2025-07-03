@@ -7,6 +7,10 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import LandingPage from './pages/LandingPage'
 import NewRecordingPage from './pages/NewRecordingPage'
+import MyRecordingsPage from "./pages/MyRecordingsPage"
+import CommunityRecordingsPage from './pages/CommunityRecordingsPage'
+import ProfilePage from './pages/ProfilePage'
+import SettingsPage from './pages/SettingsPage'
 import { setOnUnauthenticated } from "./api/auth"
 
 const App = () => {
@@ -27,6 +31,10 @@ const App = () => {
             <Route path="/home" element={<Navigate to="/" />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/recordings/new" element={<NewRecordingPage />} />
+            <Route path="/recordings/my" element={<MyRecordingsPage />} />
+            <Route path="/recordings" element={<CommunityRecordingsPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/settings" element={<SettingsPage />} />
             <Route path="*" element={<NotFoundPage />} />
         </Routes>
     )

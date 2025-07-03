@@ -44,7 +44,7 @@ api.interceptors.response.use(
         // Public routes where no token should be refreshed
         const publicPaths = ["register/", "token/"]
         const isPublicPath = (url) => {
-            return ["register/", "token/"].some((path) => url.endsWith(path))
+            return publicPaths.some((path) => url.endsWith(path))
         }
 
 
