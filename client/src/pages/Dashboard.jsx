@@ -70,7 +70,7 @@ const recentRecordings = [
 const Dashboard = () => {
     return (
         <Layout>
-            <div className="flex h-full w-full max-w-7xl mx-auto">
+            <div className="flex h-full w-full max-w-7xl mx-auto bg-bg dark:bg-bg-dark">
                 <div className="h-full w-full p-6 space-y-8 bg-background text-text">
                     {/* Header with Start Recording Button */}
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">

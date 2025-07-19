@@ -51,10 +51,10 @@ const accountItems = [
 
 const AppSidebar = () => {
     return (
-        <Sidebar className="border-r border-accent bg-background text-text p-1">
+        <Sidebar className="border-r border-border dark:border-border-dark bg-bg-secondary dark:bg-bg-secondary-dark dark:text-text-dark text-text p-1">
             <SidebarHeader className="p-6">
                 <Link href="/dashboard" className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary dark:from-primary-dark dark:to-secondary-dark rounded-xl flex items-center justify-center">
                         {/* <Video className="h-5 w-5 text-white" /> */}
                     </div>
                     <div>
@@ -66,14 +66,14 @@ const AppSidebar = () => {
 
             <SidebarContent className="flex flex-col items-center">
                 <SidebarGroup >
-                    <SidebarGroupLabel className="text-xs font-semibold text-text-secondary uppercase tracking-wider">
+                    <SidebarGroupLabel className="text-xs font-semibold text-text-placeholder dark:text-text-placeholder-dark uppercase tracking-wider">
                         Main
                     </SidebarGroupLabel>
                     <SidebarGroupContent >
                         <SidebarMenu>
                             {mainNavItems.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild className="h-11 px-3 font-medium hover:bg-accent/50">
+                                    <SidebarMenuButton asChild className="h-11 px-3 font-medium rounded-full hover:bg-border/50 dark:hover:bg-border-dark/50">
                                         <Link to={item.url}>
                                             <item.icon className="h-5 w-5" />
                                             <span>{item.title}</span>
@@ -89,14 +89,14 @@ const AppSidebar = () => {
                     <SidebarSeparator className="bg-accent w-full mx-0" />
                 </div>
                 <SidebarGroup>
-                    <SidebarGroupLabel className="text-xs font-semibold text-text-secondary uppercase tracking-wider">
+                    <SidebarGroupLabel className="text-xs font-semibold text-text-placeholder dark:text-text-placeholder uppercase tracking-wider">
                         Account
                     </SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {accountItems.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild className="h-11 px-3 font-medium hover:bg-accent/50">
+                                    <SidebarMenuButton asChild className="h-11 px-3 font-medium rounded-full hover:bg-border/50 dark:hover:bg-border-dark/50">
                                         <Link to={item.url}>
                                             <item.icon className="h-5 w-5" />
                                             <span>{item.title}</span>

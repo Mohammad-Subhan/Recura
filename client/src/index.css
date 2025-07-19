@@ -4,36 +4,21 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-background: var(--background);
-  --color-secondary: var(--secondary);
-  --color-secondary-hover: var(--secondary-hover);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-primary: var(--primary);
-  --color-primary-hover: var(--primary-hover);
-  --color-text: var(--text);
-  --color-text-secondary: var(--text-secondary);
-}
+  /* Light mode colors */
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f0f0f0;
+  --color-primary: #c9cf2b;
+  --color-secondary: #babd48;
+  --color-border: #d3d3d3;
+  --color-text: #121212;
+  --color-text-placeholder: #b6b6b6;
 
-:root {
-  --background: #F7FAFA;
-  --secondary: #FFA02B;
-  --secondary-hover: #E59026;
-  --accent: #E3E8F2;
-  --accent-hover: #E4E6EB;
-  --primary: #F5C754;
-  --primary-hover: #F4C245;
-  --text: #141C24;
-  --text-secondary: #405473;
-}
-
-.dark {
-  --background: #141C24;
-  --secondary: #272f37;
-  --secondary-hover: #DCDEE0;
-  --accent: #273646;
-  --primary: #F5C754;
-  --primary-hover: #F4C245;
-  --text: #F7FAFA;
-  --text-secondary: #DEE1E1;
+  /* Dark mode colors */
+  --color-bg-dark: #121212;
+  --color-bg-secondary-dark: #282828;
+  --color-primary-dark: #b0b526;
+  --color-secondary-dark: #babd44;
+  --color-border-dark: #575757;
+  --color-text-dark: #FFFFFF;
+  --color-text-placeholder-dark: #8b8b8b;
 }

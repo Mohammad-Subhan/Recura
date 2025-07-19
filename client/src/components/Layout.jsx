@@ -8,9 +8,9 @@ const Layout = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false)
     return (
         <SidebarProvider open={isOpen} onOpenChange={setIsOpen}>
-            <div className="flex min-h-screen w-full bg-gray-50">
+            <div className="flex min-h-screen w-full bg-bg dark:bg-bg-dark text-text dark:text-text-dark">
                 <AppSidebar />
-                <div className="flex flex-col flex-1 h-full w-full">
+                <div className="flex flex-col flex-1 h-full w-full bg-bg dark:bg-bg-dark">
                     <Header isOpen={isOpen} />
                     <main className="flex w-full h-full mt-16">{children}</main>
                 </div>
