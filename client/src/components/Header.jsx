@@ -61,7 +61,7 @@ const Header = ({ isOpen }) => {
     }, [lastScrollY]);
 
     return (
-        <header className={`${!showHeader && "top-[-64px]"} transition-all fixed top-0 z-50 dark:shadow-border-dark/30 dark:bg-bg-dark/80 bg-bg/80 text-text dark:text-text-dark backdrop-blur-md shadow-md ${isOpen ? 'left-64 right-0' : 'left-0 right-0'}`}>
+        <header className={`${!showHeader && "top-[-64px]"} transition-all duration-200 ease-linear fixed top-0 z-50 dark:shadow-border-dark/30 dark:bg-bg-dark/80 bg-bg/80 text-text dark:text-text-dark backdrop-blur-md shadow-md ${isOpen ? 'left-64 right-0' : 'left-0 right-0'}`}>
             <div className="flex h-16 items-center justify-between px-4 sm:px-6 w-full">
                 <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
                     <Button onClick={toggleSidebar} variant="ghost" size="icon" className="hover:cursor-pointer hover:bg-transparent">

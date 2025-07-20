@@ -1,4 +1,3 @@
-import React from 'react'
 import LandingTopNavbar from '../components/LandingTopNavbar'
 import { LuZap, LuFileText, LuShield } from "react-icons/lu";
 import { RiShareLine } from "react-icons/ri";

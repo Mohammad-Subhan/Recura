@@ -26,7 +26,7 @@ const mainNavItems = [
     },
     {
         title: "My Recordings",
-        url: "/dashboard/recordings",
+        url: "/recordings/my",
         icon: FolderOpen,
     },
     {
