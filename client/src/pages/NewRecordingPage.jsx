@@ -1,13 +1,14 @@
 import Layout from "../components/Layout"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
+import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
+import { Button } from "../components/ui/button"
+import { Label } from "../components/ui/label"
+import { Switch } from "../components/ui/switch"
 import {
     Play,
     Monitor,
     Settings,
 } from "lucide-react"
+import { useState } from "react"
 
 const settings = [
     { id: "mic-setting", label: "Microphone" },
@@ -19,10 +20,13 @@ const settings = [
 
 const NewRecordingPage = () => {
 
+    const [resolution, setResolution] = useState("1080p");
+    const [frameRate, setFrameRate] = useState("30fps");
+
     return (
         <Layout>
-            <div className="flex h-full w-full max-w-7xl mx-auto">
-                <div className="h-full w-full p-6 space-y-6 bg-background text-text">
+            <div className="flex h-full w-full max-w-7xl mx-auto text-text dark:text-text-dark">
+                <div className="h-full w-full p-6 space-y-6 bg-background">
                     <div className="text-center">
                         <h1 className="text-3xl font-bold mb-2">Screen Recording Studio</h1>
                         <p className="text-text-secondary">Record your screen with professional quality and AI-powered features</p>
@@ -32,8 +36,8 @@ const NewRecordingPage = () => {
                         {/* Recording Controls */}
                         <div className="lg:col-span-2 space-y-6">
                             {/* Main Recording Area */}
-                            <Card className="border-0 bg-white/60 backdrop-blur-sm">
-                                <CardContent className="p-8">
+                            <Card className="border-0 bg-bg dark:bg-bg-secondary-dark backdrop-blur-sm">
+                                <CardContent className=" md:p-8">
                                     <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/30 rounded-xl flex items-center justify-center mb-6 border-2 border-dashed border-primary">
                                         <div className="text-center">
                                             <div className="space-y-4">
@@ -51,11 +55,10 @@ const NewRecordingPage = () => {
                                     {/* Recording Controls */}
                                     <div className="flex items-center justify-center space-x-4">
                                         <Button
-                                            size="lg"
                                             // onClick={startRecording}
-                                            className="px-8 py-4 bg-primary hover:bg-primary-hover hover:cursor-pointer text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                                            className="md:p-5 sm:text-sm text-xs bg-primary hover:bg-primary-hover hover:cursor-pointer text-text-dark dark:text-text shadow-lg hover:shadow-xl transition-all duration-300 rounded-full"
                                         >
-                                            <Play className="w-5 h-5 mr-2" />
+                                            <Play className="sm:w-5 sm:h-5 w-2 h-2" />
                                             Start Recording
                                         </Button>
                                     </div>
@@ -89,7 +92,7 @@ const NewRecordingPage = () => {
 
                         {/* Settings Panel */}
                         <div className="space-y-6">
-                            <Card className="border-0 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm">
+                            <Card className="border-0 bg-bg dark:bg-bg-secondary-dark backdrop-blur-sm">
                                 <CardHeader>
                                     <CardTitle className="flex items-center">
                                         <Settings className="w-5 h-5 mr-2" />
@@ -100,13 +103,13 @@ const NewRecordingPage = () => {
                                     {settings.map((setting) => (
                                         <div className="flex items-center justify-between">
                                             <Label htmlFor={setting.id}>{setting.label}</Label>
-                                            <Switch id={setting.id} className="bg-accent data-[state=checked]:bg-primary" />
+                                            <Switch key={setting.id} />
                                         </div>
                                     ))}
                                 </CardContent>
                             </Card>
 
-                            <Card className="border-0 bg-white/60 backdrop-blur-sm">
+                            <Card className="border-0 bg-bg dark:bg-bg-secondary-dark backdrop-blur-sm">
                                 <CardHeader>
                                     <CardTitle>Quality Settings</CardTitle>
                                 </CardHeader>
@@ -114,10 +117,10 @@ const NewRecordingPage = () => {
                                     <div>
                                         <Label className="text-sm font-medium">Resolution</Label>
                                         <div className="grid grid-cols-2 gap-2 mt-2">
-                                            <Button variant="outline" size="sm" className="text-xs border-accent hover:cursor-pointer">
+                                            <Button onClick={() => setResolution("1080p")} variant="outline" size="sm" className={`text-xs border-border dark:border-border-dark hover:cursor-pointer ${resolution === "1080p" && "bg-primary text-text-dark dark:text-text"}`}>
                                                 1080p
                                             </Button>
-                                            <Button variant="outline" size="sm" className="text-xs border-accent hover:cursor-pointer">
+                                            <Button onClick={() => setResolution("4K")} variant="outline" size="sm" className={`text-xs border-border dark:border-border-dark hover:cursor-pointer ${resolution === "4K" && "bg-primary text-text-dark dark:text-text"}`}>
                                                 4K
                                             </Button>
                                         </div>
@@ -126,10 +129,10 @@ const NewRecordingPage = () => {
                                     <div>
                                         <Label className="text-sm font-medium">Frame Rate</Label>
                                         <div className="grid grid-cols-2 gap-2 mt-2">
-                                            <Button variant="outline" size="sm" className="text-xs border-accent hover:cursor-pointer">
+                                            <Button onClick={() => setFrameRate("30fps")} variant="outline" size="sm" className={`text-xs border-border dark:border-border-dark hover:cursor-pointer ${frameRate === "30fps" && "bg-primary text-text-dark dark:text-text"}`}>
                                                 30fps
                                             </Button>
-                                            <Button variant="outline" size="sm" className="text-xs border-accent hover:cursor-pointer">
+                                            <Button onClick={() => setFrameRate("60fps")} variant="outline" size="sm" className={`text-xs border-border dark:border-border-dark hover:cursor-pointer ${frameRate === "60fps" && "bg-primary text-text-dark dark:text-text"}`}>
                                                 60fps
                                             </Button>
                                         </div>
@@ -137,7 +140,7 @@ const NewRecordingPage = () => {
                                 </CardContent>
                             </Card>
 
-                            <Card className="border-0 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm">
+                            <Card className="border-0 bg-bg dark:bg-bg-secondary-dark backdrop-blur-sm">
                                 <CardHeader>
                                     <CardTitle>AI Features</CardTitle>
                                 </CardHeader>

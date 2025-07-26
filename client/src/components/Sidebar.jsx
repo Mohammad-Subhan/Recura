@@ -21,7 +21,7 @@ const mainNavItems = [
     },
     {
         title: "New Recording",
-        url: "/dashboard/record",
+        url: "/recording/new",
         icon: Plus,
     },
     {

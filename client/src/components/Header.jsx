@@ -81,7 +81,7 @@ const Header = ({ isOpen }) => {
                             <Button variant="ghost" className="relative h-8 w-8 sm:h-10 sm:w-10 rounded-full hover:cursor-pointer">
                                 <Avatar className="h-8 w-8 sm:h-10 sm:w-10">
                                     <AvatarImage src="/placeholder.svg?height=40&width=40" alt="User" />
-                                    <AvatarFallback className="bg-gradient-to-br from-primary to-secondary dark:from-primary-dark dark:to-secondary-dark text-text-dark text-xs sm:text-sm">
+                                    <AvatarFallback className="bg-gradient-to-br from-primary to-secondary dark:text-text text-text-dark text-xs sm:text-sm">
                                         JD
                                     </AvatarFallback>
                                 </Avatar>
