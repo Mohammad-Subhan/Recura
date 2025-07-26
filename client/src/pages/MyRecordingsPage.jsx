@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Search, Play, Eye, SortDesc, Video } from "lucide-react"
+import { Search, Play, Eye, ArrowDownWideNarrow, ArrowUpWideNarrow, Video } from "lucide-react"
 import { Link } from "react-router-dom"
 import Layout from "../components/Layout"
 import { useState, useEffect } from "react"
@@ -19,6 +19,8 @@ const MyRecordingsPage = () => {
         isStaff: false,
         createdAt: ""
     });
+    const [searchTerm, setSearchTerm] = useState("");
+    const [sortBy, setSortBy] = useState("latest");
 
     useEffect(() => {
         setRecordings(assets.sampleRecordings);
@@ -37,6 +39,26 @@ const MyRecordingsPage = () => {
         if (seconds < 2592000) return `${Math.floor(seconds / 86400)} days ago`;
         if (seconds < 31536000) return `${Math.floor(seconds / 2592000)} months ago`;
         return `${Math.floor(seconds / 31536000)} years ago`;
+    }
+
+    useEffect(() => {
+        const filteredRecordings = assets.sampleRecordings.filter(recording =>
+            recording.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            recording.description.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setRecordings(filteredRecordings);
+    }, [searchTerm]);
+
+    const handleSort = () => {
+        const sortedRecordings = [...recordings];
+        if (sortBy === "latest") {
+            sortedRecordings.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+            setSortBy("oldest");
+        } else {
+            sortedRecordings.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+            setSortBy("latest");
+        }
+        setRecordings(sortedRecordings);
     }
 
     return (
@@ -67,12 +89,12 @@ const MyRecordingsPage = () => {
                             <div className="flex flex-col md:flex-row gap-4 items-end md:items-center justify-between">
                                 <div className="relative flex items-center h-full w-full">
                                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                    <Input placeholder="Search recordings..." className="pl-10 placeholder:text-text-placeholder dark:placeholder:text-text-placeholder-dark bg-bg dark:bg-bg-dark border-none shadow-none focus-visible:ring-0" />
+                                    <Input placeholder="Search recordings..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="pl-10 placeholder:text-text-placeholder dark:placeholder:text-text-placeholder-dark bg-bg dark:bg-bg-dark border-none shadow-none focus-visible:ring-0" />
                                 </div>
                                 <div className="flex h-full items-center space-x-2">
-                                    <Button variant="outline" className="border-none bg-bg-secondary dark:bg-bg-secondary-dark hover:cursor-pointer">
-                                        <SortDesc className="w-4 h-4 mr-1" />
-                                        Sort
+                                    <Button variant="outline" onClick={handleSort} className="border-none bg-bg-secondary dark:bg-bg-secondary-dark w-24 hover:cursor-pointer">
+                                        {sortBy === "latest" ? <ArrowDownWideNarrow className="w-4 h-4 mr-1" /> : <ArrowUpWideNarrow className="w-4 h-4 mr-1" />}
+                                        {sortBy === "latest" ? "Latest" : "Oldest"}
                                     </Button>
                                 </div>
                             </div>
@@ -92,7 +114,9 @@ const MyRecordingsPage = () => {
                                     </div>
                                     <div className="absolute bottom-2 right-2">
                                         <Badge variant="secondary" className="text-xs bg-black/70 text-white border-0">
-                                            {recording.duration}
+                                            {recording.duration.split(":")[0] === "00"
+                                                ? recording.duration.split(":")[1] + ":" + recording.duration.split(":")[2]
+                                                : recording.duration}
                                         </Badge>
                                     </div>
                                 </div>

@@ -10,8 +10,8 @@ import {
     SidebarMenuItem,
     SidebarSeparator,
 } from "../components/ui/sidebar"
-import { Link } from "react-router-dom"
-import { House, Plus, FolderOpen, Captions, User, Settings } from "lucide-react"
+import { Link, useLocation } from "react-router-dom"
+import { House, Plus, FolderOpen, Captions, User, Globe, Settings } from "lucide-react"
 
 const mainNavItems = [
     {
@@ -28,6 +28,11 @@ const mainNavItems = [
         title: "My Recordings",
         url: "/recordings/my",
         icon: FolderOpen,
+    },
+    {
+        title: "Community Recordings",
+        url: "/recordings",
+        icon: Globe,
     },
     {
         title: "AI Transcription",
@@ -50,6 +55,10 @@ const accountItems = [
 ]
 
 const AppSidebar = () => {
+
+    const location = useLocation();
+    const isActive = (path) => location.pathname.endsWith(path);
+
     return (
         <Sidebar className="border-r border-border dark:border-border-dark bg-bg-secondary dark:bg-bg-secondary-dark dark:text-text-dark text-text p-1">
             <SidebarHeader className="p-6">
@@ -73,7 +82,7 @@ const AppSidebar = () => {
                         <SidebarMenu>
                             {mainNavItems.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild className="h-11 px-3 font-medium rounded-full hover:bg-border/50 dark:hover:bg-border-dark/50">
+                                    <SidebarMenuButton asChild className={`h-11 px-3 font-medium rounded-full hover:bg-border/50 dark:hover:bg-border-dark/50 ${isActive(item.url) && "bg-border/20 dark:bg-border-dark/20"}`}>
                                         <Link to={item.url}>
                                             <item.icon className="h-5 w-5" />
                                             <span>{item.title}</span>
