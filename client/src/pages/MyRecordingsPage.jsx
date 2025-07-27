@@ -72,7 +72,7 @@ const MyRecordingsPage = () => {
                             <p className="text-sm md:text-md text-muted-foreground">Manage and organize all your screen recordings</p>
                         </div>
                         <div className="mt-4 lg:mt-0">
-                            <Link to="/dashboard/record">
+                            <Link to="/recording/new">
                                 <Button
                                     className="md:h-10 h-8 px-8 py-3 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-text-dark dark:text-text font-semibold shadow-lg hover:shadow-xl transition-all text-xs md:text-sm duration-300 hover:cursor-pointer rounded-full"
                                 >

@@ -5,7 +5,7 @@ import Header from '../components/Header'
 
 const Layout = ({ children }) => {
 
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(true)
     return (
         <SidebarProvider open={isOpen} onOpenChange={setIsOpen}>
             <div className="flex min-h-screen w-full bg-bg dark:bg-bg-dark text-text dark:text-text-dark">

@@ -62,7 +62,7 @@ const LandingPage = () => {
                     </p>
 
                     <div className="flex flex-row gap-4 justify-center my-10">
-                        <Link href="/dashboard">
+                        <Link to="/dashboard">
                             <Button
                                 className="h-[40px] gap-3 rounded-full shadow-md font-semibold bg-primary hover:bg-primary/90 hover:cursor-pointer text-text"
                             >

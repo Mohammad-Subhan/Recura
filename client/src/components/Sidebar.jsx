@@ -11,7 +11,7 @@ import {
     SidebarSeparator,
 } from "../components/ui/sidebar"
 import { Link, useLocation } from "react-router-dom"
-import { House, Plus, FolderOpen, Captions, User, Globe, Settings } from "lucide-react"
+import { House, Plus, FolderOpen, Captions, User, Globe } from "lucide-react"
 
 const mainNavItems = [
     {
@@ -36,21 +36,16 @@ const mainNavItems = [
     },
     {
         title: "AI Transcription",
-        url: "/dashboard/analytics",
+        url: "/transcription",
         icon: Captions,
     }
 ]
 
 const accountItems = [
     {
-        title: "Profile",
-        url: "/dashboard/profile",
+        title: "Account & Settings",
+        url: "/profile",
         icon: User,
-    },
-    {
-        title: "Settings",
-        url: "/dashboard/settings",
-        icon: Settings,
     },
 ]
 
@@ -82,7 +77,7 @@ const AppSidebar = () => {
                         <SidebarMenu>
                             {mainNavItems.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild className={`h-11 px-3 font-medium rounded-full hover:bg-border/50 dark:hover:bg-border-dark/50 ${isActive(item.url) && "bg-border/20 dark:bg-border-dark/20"}`}>
+                                    <SidebarMenuButton asChild className={`h-11 px-3 font-medium rounded-full hover:bg-border/50 dark:hover:bg-border-dark/50 ${isActive(item.url) && "bg-border/30 dark:bg-border-dark/20"}`}>
                                         <Link to={item.url}>
                                             <item.icon className="h-5 w-5" />
                                             <span>{item.title}</span>
@@ -105,7 +100,7 @@ const AppSidebar = () => {
                         <SidebarMenu>
                             {accountItems.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild className="h-11 px-3 font-medium rounded-full hover:bg-border/50 dark:hover:bg-border-dark/50">
+                                    <SidebarMenuButton asChild className={`h-11 px-3 font-medium rounded-full hover:bg-border/50 dark:hover:bg-border-dark/50 ${isActive(item.url) && "bg-border/30 dark:bg-border-dark/20"}`}>
                                         <Link to={item.url}>
                                             <item.icon className="h-5 w-5" />
                                             <span>{item.title}</span>

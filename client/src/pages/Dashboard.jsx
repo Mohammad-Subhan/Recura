@@ -51,7 +51,7 @@ const Dashboard = () => {
                             <p className="text-muted-foreground">Ready to create your next amazing recording?</p>
                         </div>
                         <div className="mt-4 lg:mt-0">
-                            <Link to="/dashboard/record">
+                            <Link to="/recording/new">
                                 <Button
                                     size="lg"
                                     className="px-8 py-3 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-text-dark dark:text-text font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:cursor-pointer rounded-full"

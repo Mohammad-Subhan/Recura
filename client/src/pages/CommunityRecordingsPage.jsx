@@ -71,16 +71,6 @@ const CommunityRecordingsPage = () => {
                             <h1 className="text-xl md:text-3xl font-bold mb-2">Community Recordings</h1>
                             <p className="text-sm md:text-md text-muted-foreground">Explore and discover recordings from the community</p>
                         </div>
-                        <div className="mt-4 lg:mt-0">
-                            <Link to="/dashboard/record">
-                                <Button
-                                    className="md:h-10 h-8 px-8 py-3 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-text-dark dark:text-text font-semibold shadow-lg hover:shadow-xl transition-all text-xs md:text-sm duration-300 hover:cursor-pointer rounded-full"
-                                >
-                                    <Video className="w-5 h-5 md:mr-1" />
-                                    New Recording
-                                </Button>
-                            </Link>
-                        </div>
                     </div>
 
                     {/* Filters and Search */}
