@@ -11,7 +11,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar"
 import { useSidebar } from "../components/ui/sidebar"
 import ModeToggle from "./ModeToggle"
-import { PanelRightClose, PanelRightOpen, User, CreditCard, Settings, HelpCircle, LogOut } from "lucide-react"
+import { PanelRightClose, PanelRightOpen, User, Settings, LogOut } from "lucide-react"
 
 const dropdownMenuItems = [
     {

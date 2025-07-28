@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from "../components/ui/button"
-import { FiUser } from "react-icons/fi"
-import { LuSun } from "react-icons/lu"
-import { IoMenu } from "react-icons/io5"
+import { Menu, User } from 'lucide-react'
 import ModeToggle from './ModeToggle'
+import { ArrowRight } from 'lucide-react'
+import { useSelector } from 'react-redux'
 
 const LandingTopNavbar = () => {
 
@@ -12,6 +12,7 @@ const LandingTopNavbar = () => {
     const [showHeader, setShowHeader] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [showBackground, setShowBackground] = useState(false);
+    const isAuthenticated = useSelector(state => state.user.isAuthenticated);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -64,21 +65,33 @@ const LandingTopNavbar = () => {
                         {/* Mobile Menu Button */}
                         <div className="md:hidden flex items-center">
                             <Button variant="ghost" className="hover:cursor-pointer" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                                <IoMenu className="w-5 h-5" />
+                                <Menu className="w-5 h-5" />
                             </Button>
                         </div>
 
-                        <Button variant="ghost" className="hidden md:flex">
-                            <Link to="/login" className="">
-                                Login
+                        {isAuthenticated
+                            ? <Link to="/dashboard">
+                                <Button
+                                    className="h-[40px] gap-3 rounded-full shadow-md font-semibold bg-primary hover:bg-primary/90 hover:cursor-pointer text-text"
+                                >
+                                    Dashboard
+                                    <ArrowRight />
+                                </Button>
                             </Link>
-                        </Button>
-                        <Button className="hidden md:flex px-4 py-2 bg-gradient-to-br from-primary to-secondary dark:text-text rounded-full hover:from-primary-hover hover:to-secondary-hover hover:cursor-pointer">
-                            <Link to="/register" className="flex items-center gap-x-2">
-                                <FiUser />
-                                Register
-                            </Link>
-                        </Button>
+                            : <>
+                                <Button variant="ghost" className="hidden md:flex">
+                                    <Link to="/login" className="">
+                                        Login
+                                    </Link>
+                                </Button>
+                                <Button className="hidden md:flex px-4 py-2 bg-gradient-to-br from-primary to-secondary dark:text-text rounded-full hover:from-primary-hover hover:to-secondary-hover hover:cursor-pointer">
+                                    <Link to="/register" className="flex items-center gap-x-2">
+                                        <User />
+                                        Register
+                                    </Link>
+                                </Button>
+                            </>
+                        }
                     </div>
 
                     {/* Mobile Menu */}
@@ -97,20 +110,32 @@ const LandingTopNavbar = () => {
                                 Support
                             </Link>
                             <div className="flex flex-col space-y-2">
-                                <Link href="/auth/signin">
-                                    <Button variant="outline" size="sm" className="w-full justify-center bg-bg dark:bg-bg-dark border-border dark:border-border-dark hover:bg-border-dark/10 rounded-full hover:cursor-pointer">
-                                        Sign In
-                                    </Button>
-                                </Link>
-                                <Link href="/dashboard">
-                                    <Button
-                                        size="sm"
-                                        className="w-full bg-gradient-to-br from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 dark:from-primary-dark dark:to-secondary-dark dark:hover:from-primary-dark/90 dark:hover:to-secondary-dark/90 hover:cursor-pointer text-text rounded-full flex items-center gap-x-2"
-                                    >
-                                        <FiUser />
-                                        Register
-                                    </Button>
-                                </Link>
+                                {isAuthenticated
+                                    ? <Link to="/dashboard">
+                                        <Button
+                                            className="h-[40px] gap-3 rounded-full shadow-md font-semibold bg-primary hover:bg-primary/90 hover:cursor-pointer text-text"
+                                        >
+                                            Dashboard
+                                            <ArrowRight />
+                                        </Button>
+                                    </Link>
+                                    : <>
+                                        <Link to="/login">
+                                            <Button variant="outline" size="sm" className="w-full justify-center bg-bg dark:bg-bg-dark border-border dark:border-border-dark hover:bg-border-dark/10 rounded-full hover:cursor-pointer">
+                                                Login
+                                            </Button>
+                                        </Link>
+                                        <Link to="/register">
+                                            <Button
+                                                size="sm"
+                                                className="w-full bg-gradient-to-br from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 dark:from-primary-dark dark:to-secondary-dark dark:hover:from-primary-dark/90 dark:hover:to-secondary-dark/90 hover:cursor-pointer text-text rounded-full flex items-center gap-x-2"
+                                            >
+                                                <User />
+                                                Register
+                                            </Button>
+                                        </Link>
+                                    </>
+                                }
                             </div>
                         </div>
                     </div>

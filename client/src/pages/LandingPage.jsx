@@ -1,37 +1,33 @@
 import LandingTopNavbar from '../components/LandingTopNavbar'
-import { LuZap, LuFileText, LuShield } from "react-icons/lu";
-import { RiShareLine } from "react-icons/ri";
-import { FaArrowRight } from "react-icons/fa6"
-import { FiCheckCircle } from "react-icons/fi";
-import { IoPlayOutline, IoMicOutline } from "react-icons/io5"
 import { Badge } from "../components/ui/badge"
 import { Button } from "../components/ui/button"
 import { Card, CardContent } from "../components/ui/card"
 import { Link } from "react-router-dom"
+import { ArrowRight, CheckCircle, FileText, Mic, Play, Share2, Shield, Zap } from 'lucide-react';
 
 const features = [
     {
-        icon: LuZap,
+        icon: Zap,
         title: "One-Click Recording",
         description: "Start recording instantly with minimal setup. No complex configurations required.",
     },
     {
-        icon: RiShareLine,
+        icon: Share2,
         title: "Instant Sharing",
         description: "Generate shareable links immediately. Control privacy with public or private settings.",
     },
     {
-        icon: LuFileText,
+        icon: FileText,
         title: "AI Transcription",
         description: "Automatic speech-to-text transcription powered by advanced AI technology.",
     },
     {
-        icon: IoMicOutline,
+        icon: Mic,
         title: "Audio Controls",
         description: "Toggle microphone on/off during recording with real-time audio monitoring.",
     },
     {
-        icon: LuShield,
+        icon: Shield,
         title: "Privacy First",
         description: "Your recordings are secure with enterprise-grade encryption and privacy controls.",
     },
@@ -67,14 +63,14 @@ const LandingPage = () => {
                                 className="h-[40px] gap-3 rounded-full shadow-md font-semibold bg-primary hover:bg-primary/90 hover:cursor-pointer text-text"
                             >
                                 Get Started
-                                <FaArrowRight />
+                                <ArrowRight />
                             </Button>
                         </Link>
                         <Button
                             variant="outline"
                             className="h-[40px] transition-all duration-300 font-semibold shadow-md dark:border-border-dark/30 rounded-full border-0 border-border-dark/5 dark:border hover:bg-border/2 hover:cursor-pointer"
                         >
-                            <IoPlayOutline />
+                            <Play />
                             Watch Demo
                         </Button>
                     </div>
@@ -85,7 +81,7 @@ const LandingPage = () => {
                     <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl shadow-lg flex items-center justify-center mx-auto aspect-video w-full md:max-w-xl lg:max-w-4xl p-6">
                         <div className="text-center">
                             <div className="sm:w-20 sm:h-20 w-10 h-10 bg-primary rounded-full relative flex items-center mx-auto mb-4 hover:cursor-pointer">
-                                <IoPlayOutline className="absolute sm:left-6.5 left-[13px] sm:h-8 sm:w-8 text-text" />
+                                <Play className="absolute sm:left-6.5 left-[13px] sm:h-8 sm:w-8 text-text" />
                             </div>
                             <p className="sm:text-lg font-medium">Demo Video</p>
                         </div>
@@ -139,9 +135,9 @@ const LandingPage = () => {
                                             $0<span className="text-lg font-normal text-text-secondary">/month</span>
                                         </p>
                                         <ul className="space-y-2 mb-4">
-                                            <li className="flex items-center gap-x-2"><FiCheckCircle className="text-green-500" /> Unlimited recordings</li>
-                                            <li className="flex items-center gap-x-2"><FiCheckCircle className="text-green-500" /> 5GB storage</li>
-                                            <li className="flex items-center gap-x-2"><FiCheckCircle className="text-green-500" /> Basic support</li>
+                                            <li className="flex items-center gap-x-2"><CheckCircle height={16} width={16} className="text-green-500" /> Unlimited recordings</li>
+                                            <li className="flex items-center gap-x-2"><CheckCircle height={16} width={16} className="text-green-500" /> 5GB storage</li>
+                                            <li className="flex items-center gap-x-2"><CheckCircle height={16} width={16} className="text-green-500" /> Basic support</li>
                                         </ul>
                                     </div>
                                     <Button variant="outline" size="lg" className="rounded-full w-full bg-transparent border-border dark:border-border-dark hover:bg-border/5 dark:hover:bg-border-dark/5 hover:cursor-pointer">Get Started</Button>
@@ -159,9 +155,9 @@ const LandingPage = () => {
                                             $12<span className="text-lg font-normal text-text-secondary">/month</span>
                                         </p>
                                         <ul className="space-y-2 mb-4">
-                                            <li className="flex items-center gap-x-2"><FiCheckCircle className="text-green-500" /> Unlimited recordings</li>
-                                            <li className="flex items-center gap-x-2"><FiCheckCircle className="text-green-500" /> 5GB storage</li>
-                                            <li className="flex items-center gap-x-2"><FiCheckCircle className="text-green-500" /> Basic support</li>
+                                            <li className="flex items-center gap-x-2"><CheckCircle height={16} width={16} className="text-green-500" /> Unlimited recordings</li>
+                                            <li className="flex items-center gap-x-2"><CheckCircle height={16} width={16} className="text-green-500" /> 5GB storage</li>
+                                            <li className="flex items-center gap-x-2"><CheckCircle height={16} width={16} className="text-green-500" /> Basic support</li>
                                         </ul>
                                     </div>
                                     <Button variant="outline" size="lg" className="rounded-full w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/95 hover:to-secondary/95 transition-all text-text hover:cursor-pointer border-none">Get Started</Button>

@@ -27,7 +27,7 @@ const NewRecordingPage = () => {
         <Layout>
             <div className="flex h-full w-full max-w-7xl mx-auto text-text dark:text-text-dark">
                 <div className="h-full w-full p-6 space-y-6 bg-background">
-                    <div className="text-center">
+                    <div className="text-start">
                         <h1 className="text-3xl font-bold mb-2">Screen Recording Studio</h1>
                         <p className="text-text-secondary">Record your screen with professional quality and AI-powered features</p>
                     </div>

@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { Navigate } from "react-router-dom"
-import { setUser, clearUser, setLoading } from "../features/user/userSlice"
-import { getAccessToken, refreshAccessToken } from "../api/auth"
+import { setUser, clearUser } from "../features/user/userSlice"
+import { getAccessToken } from "../api/auth"
 import api from "../api/axios"
 
 const ProtectedRoute = ({ children }) => {

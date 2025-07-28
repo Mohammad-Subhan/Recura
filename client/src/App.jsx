@@ -9,6 +9,7 @@ import LandingPage from './pages/LandingPage'
 import NewRecordingPage from './pages/NewRecordingPage'
 import MyRecordingsPage from "./pages/MyRecordingsPage"
 import CommunityRecordingsPage from './pages/CommunityRecordingsPage'
+import TranscriptionPage from './pages/TranscriptionPage'
 import ProfileSettingsPage from './pages/ProfileSettingsPage'
 import { setOnUnauthenticated } from "./api/auth"
 
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/recordings/my" element={<MyRecordingsPage />} />
             <Route path="/recordings" element={<CommunityRecordingsPage />} />
             <Route path="/profile" element={<ProfileSettingsPage />} />
+            <Route path="/transcription" element={<TranscriptionPage />} />
             <Route path="*" element={<NotFoundPage />} />
         </Routes>
     )
