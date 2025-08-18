@@ -101,7 +101,7 @@ const NewRecordingPage = () => {
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     {settings.map((setting) => (
-                                        <div className="flex items-center justify-between">
+                                        <div key={setting.id} className="flex items-center justify-between">
                                             <Label htmlFor={setting.id}>{setting.label}</Label>
                                             <Switch key={setting.id} />
                                         </div>

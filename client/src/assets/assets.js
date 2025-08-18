@@ -74,44 +74,6 @@ const sampleRecordings = [
     }
 ]
 
-const sampleTranscriptions = [
-    {
-        id: 1,
-        recording: 1,
-        text: "Hello team, let's start with project updates.",
-        language: "en",
-        createdAt: "2025-07-18T12:35:00Z"
-    },
-    {
-        id: 2,
-        recording: 2,
-        text: "Welcome to the product demo session.",
-        language: "en",
-        createdAt: "2025-07-17T10:05:00Z"
-    },
-    {
-        id: 3,
-        recording: 3,
-        text: "Good afternoon, this is our discussion with ABC Corp.",
-        language: "en",
-        createdAt: "2025-07-16T15:05:00Z"
-    },
-    {
-        id: 4,
-        recording: 4,
-        text: "Thank you for joining our marketing webinar.",
-        language: "en",
-        createdAt: "2025-07-15T18:05:00Z"
-    },
-    {
-        id: 5,
-        recording: 5,
-        text: "Let's begin the interview with your introduction.",
-        language: "en",
-        createdAt: "2025-07-14T12:05:00Z"
-    }
-]
-
 const sampleSharedLinks = [
     {
         id: 1,
@@ -154,7 +116,6 @@ const samplePreferences = {
 const assets = {
     sampleUser,
     sampleRecordings,
-    sampleTranscriptions,
     sampleSharedLinks,
     samplePreferences
 }

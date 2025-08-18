@@ -11,7 +11,7 @@ import {
     SidebarSeparator,
 } from "../components/ui/sidebar"
 import { Link, useLocation } from "react-router-dom"
-import { House, Plus, FolderOpen, Captions, User, Globe } from "lucide-react"
+import { House, Plus, FolderOpen, User, Globe } from "lucide-react"
 
 const mainNavItems = [
     {
@@ -34,11 +34,6 @@ const mainNavItems = [
         url: "/recordings",
         icon: Globe,
     },
-    {
-        title: "AI Transcription",
-        url: "/transcription",
-        icon: Captions,
-    }
 ]
 
 const accountItems = [

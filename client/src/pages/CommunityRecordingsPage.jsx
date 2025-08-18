@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Search, Play, Eye, ArrowDownWideNarrow, ArrowUpWideNarrow } from "lucide-react"
 import Layout from "../components/Layout"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import assets from "../assets/assets"
 
 const CommunityRecordingsPage = () => {
@@ -93,7 +94,7 @@ const CommunityRecordingsPage = () => {
                     {/* Recordings Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {recordings.map((recording) => (
-                            <div key={recording.id} className="group cursor-pointer">
+                            <Link key={recording.id} to={`/recording/${recording.id}`} className="group cursor-pointer">
                                 <div className="relative aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden mb-3 hover:shadow-lg transition-shadow duration-300">
                                     <img src={recording.thumbnailUrl} className="absolute inset-0 w-full h-full object-cover" />
                                     <div className="absolute inset-0 flex items-center justify-center">
@@ -129,7 +130,7 @@ const CommunityRecordingsPage = () => {
                                     </span>
                                     <span>{getTime(recording.createdAt)}</span>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
 

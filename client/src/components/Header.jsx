@@ -41,7 +41,6 @@ const Header = ({ isOpen }) => {
     const [showHeader, setShowHeader] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
 
-
     useEffect(() => {
         const handleScroll = () => {
             const currentY = window.scrollY;
