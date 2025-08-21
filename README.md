@@ -1,8 +1,8 @@
-# Recordit
+# Recura
 
-Recordit is a modern web platform for screen recording with AI-powered speech-to-text transcription. Designed for 100% responsive performance across desktop and mobile, it delivers seamless user experience and robust backend capabilities.
+Recura is a modern web platform for screen recording with AI-powered speech-to-text transcription. Designed for 100% responsive performance across desktop and mobile, it delivers seamless user experience and robust backend capabilities.
 
-#### Demo Website: [Recordit](https://recordit.vercel.app)
+#### Demo Website: [Recura](https://recordit.vercel.app)
 
 ## Features
 
